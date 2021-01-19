@@ -1,2 +1,15 @@
 # Deadlock_Avoidance_Algorithm
-A new Deadlock avoidance algorithm is created using C language which when compared is more efficient than the Bankers algorithm
+A new Deadlock avoidance algorithm is created using C language which when compared is more efficient than the Bankers algorithm.
+
+
+The Algorithm that we are proposing and trying to implement is based on the idea of No-preemption for deadlock prevention, existence of deadlocks in a smaller network could be overcome easily, but if we are dealing with a Grid environment, it could be technically and economically infeasible to deal with such a situation. That will in turn result into the blockage of Network packets in and around the network. In a distributed environment, resources as well as processes are geographical distributed. A process requests the resources; if the resources are not available at that time, the process enters into a wait state. Waiting processes may never again change state, because the resources they have requested are held by some other waiting processes. So our algorithm may provide a provision for efficient allocation of resources such that deadlocks never occur in a grid environment.
+
+The simulation experiment provides us of a general idea how this could be realized for a Grid Environment. Our algorithm relates to allocation of resources by following the three protocols of no preemption elimination condition for deadlock prevention and following those three protocols step by step allocation of resources as per the protocols. Number of processes and number of resources to be allocated as input by the user are arranged in the form of a matrix of processes and available resources. Similarly, resources to be allocated to a process or processes are again arranged in a matrix form. The algorithm restricts the occurrence of deadlock by considering the constraints of the program.
+The proposed algorithm prevent deadlock in grid environment by considering no preemption elimination condition. Grid is a collection of large database and it is prone to deadlock.
+
+In grid environment the resources as well as processes are geographically distributed. The deadlock prevention algorithm work as:
+1.	If demand is less than availability then the resources are allocated.
+2.	If demand is greater than availability then two conditions arises-
+•	If a process is holding some resources and request a resource which is held by some other process, then all the resources currently held are preempted. The pre-empted resources are added to the list of resources for which the process is waiting. The process will restart again only if it regains its old resources, as well as the new ones that it is requesting.
+•	If the resources are neither available nor held by a waiting process, the requesting process must wait. While it is waiting, some of its resources may be preempted, but only if another process requests them. A process can be restarted only when it allocated the new resources it is requesting and recovers any resources that were preempted while it was waiting. This algorithm ensures that resources are allocated to a process for a time span to avoid occurrence of deadlock.
+

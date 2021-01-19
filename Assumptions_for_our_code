@@ -1,0 +1,32 @@
+1.	Number of processes-10 for easy understanding
+2.	Number of resources-6
+3.	Consider only 3 conditions of no pre-emption elimination protocol that is-
+•	If a process requests some resources, we first check whether they are available. If they are, we allocate them. If they are not, we check whether they are allocated to some other process that is waiting for additional resources. If so, we preempt the desired resources from the waiting process and allocate them to the requesting process.
+•	If a process is holding some resources and request a resource which is held by some other process, then all the resources currently held are pre-empted. The pre-empted resources are added to the list of resources for which the process is waiting; the process will restart again only if it regains its old resources, as well as the new ones that it is requesting.
+•	If the resources are neither available nor held by a waiting process, the requesting process must wait. While it is waiting, some of its resources may be preempted, but only if another process requests them. A process can be restarted only when it allocated the new resources it is requesting and recovers any resources that were preempted while it was waiting.
+4.	Input only integer values.
+5.	Message, unsafe state if there is chance of deadlock.
+
+
+
+Pseudo Code:
+As per flowchart
+1.	We assume number of processes not to exceed 10.
+2.	Also, the number of resources must not exceed 6, if either the number of processes or resources exceeds this limit, there will be an warning message.
+3.	Initialize the variables DEM and AVAIL equal to zero initially, which means that initially there is no process in the system and also no resource present.
+4.	The user inputs the number of processes and the number of resources as per his choice; firstly the resources are allocated as per the FCFS scheduling criteria fulfilling the demand of requested resources by processes if they are available in the system. These processes are executed and results are retrieved with the release of held resources.
+5.	Secondly if the demand DEM is less than the number of available resources AVAIL, 2 cases arise.
+5(a) a process is holding some resources and request a resource which is held by some other process, then all the resources currently held by the other process are pre-empted, it may be restarted only it receives back its pre- empted resources as well the resources it demanded. It is reallocated resources and it follows the steps as the previous case 4.
+5(b).The resources are neither available nor held by any waiting process, the process requesting for more resources has to wait and Consequently, its resources get pre-empted, if some other process requests resources of that type. This process could be restarted only it receives back its pre-empted resources as well as the resources it demanded. It is reallocated resources and it follows the steps as the previous case 5(a).
+6.	The released resources after process completion are maintained in the list.
+7.	The output is analyzed as per the requirements and set of constraints, if it fulfills the criteria, the results are kept or it goes back to STEP 4.
+8.	Again the same procedure is followed for next allocation.
+9.	Outputs matrices are displayed for different matrices and it is indicated which process completes execution and its resources are sent back to resource table.
+
+
+
+Criteria for Pre-emption:
+If for a particular process the amount of resource required in greater than the available resource then we preempt that process which is holding the highest amount of resource that is required.
+
+For example if process P1 requires 4,0 and 7 resource of type A,B and C respectively and currently the available resources of type A,B and C are 4, 0 and 3. So 4 more instance of resource C is required.
+Here our algorithm will preempt all the resources of the process which is holding maximum instance of resource C, so that P1 can complete.
